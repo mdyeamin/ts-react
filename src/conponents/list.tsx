@@ -1,15 +1,21 @@
-import React from 'react'
+import React from "react";
 
-const list = ({items,onClick}:{
-  items: string[],
-  onClick:  () => void
+const List = ({
+  items,
+  onClick,
+}: {
+  items: string[];
+  onClick(word: string): void;
 }) => {
   return (
-    <div>list</div>
-  )
-}
+    <div>
+      {items.map((item, index) => (
+        <li key={index} onClick={() => onClick(item)}>
+          {item}
+        </li>
+      ))}
+    </div>
+  );
+};
 
-export default list
-
-// rafce create a component
-
+export default List;
